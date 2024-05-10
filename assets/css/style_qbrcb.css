@@ -1,0 +1,122 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Variables */
+:root {
+  --primary-color: #5372F0;
+  --secondary-color: #fff;
+  --neutral-color: #ccc;
+  --button-gray: #6C757D;
+  --button-hover-gray: #5f666d;
+  --button-blue: #5372F0;
+  --button-hover-blue: #2c52ed;
+  --button-yellow: rgb(240, 207, 39);
+  --button-hover-yellow: rgb(210, 180, 30);
+  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body */
+body {
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--primary-color);
+}
+
+/* Main Container */
+.container {
+  width: calc(100% - 40px); 
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Puzzle Container */
+.puzzle {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+/* Sortable List */
+.sortable {
+  padding: 0;
+  list-style-type: none;
+}
+
+/* Sortable Items */
+.sortable-item {
+  background-color: #f9f9f9;
+  border: 1px solid var(--neutral-color);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: grab;
+}
+
+/* Button Container */
+.container-button button {
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 15px 0;
+  font-size: 17px;
+  border-radius: 5px;
+  width: calc(100% / 2 - 5px);
+  transition: all 0.3s ease;
+}
+
+/* Verify Button */
+.container-button .veri {
+  background-color: var(--button-gray);
+}
+
+.container-button .veri:hover {
+  background-color: var(--button-hover-gray);
+}
+
+/* Emb Button */
+.container-button .emb {
+  background-color: var(--button-blue);
+}
+
+.container-button .emb:hover {
+  background-color: var(--button-hover-blue);
+}
+
+/* Paragraph Button */
+.pgr {
+  margin-top: 1rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 15px 0;
+  font-size: 17px;
+  border-radius: 5px;
+  width: 100%;
+  transition: all 0.3s ease;
+  background-color: var(--button-yellow);
+}
+
+.pgr:hover {
+  background-color: var(--button-hover-yellow);
+}
+
+/* Indentation */
+.identacao {
+  margin-left: 25px;
+}

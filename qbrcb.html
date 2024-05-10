@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Puzzle</title>
+    <link rel="stylesheet" href="./assets/css/style_qbrcb.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="puzzle">
+            <div id="sortable">
+                <div class="sortable-item" id="block1">
+                    <code class="code-block">
+                        const wordText = document.querySelector(".word"), <br>
+                        hintText = document.querySelector(".hint span"), <br>
+                        timeText = document.querySelector(".time b"), <br>
+                        inputField = document.querySelector("input"), <br>
+                        refreshBtn = document.querySelector(".refresh-word"), <br>
+                        checkBtn = document.querySelector(".check-word");
+                    </code>
+                </div>
+                <div class="sortable-item" id="block2">
+                    <code class="code-block">
+                        let correctWord, timer; <br>
+                    </code>
+                </div>
+                <div class="sortable-item" id="block3">
+                    <code class="code-block">
+                        const initTimer = maxTime => { <br>
+                            clearInterval(timer); <br>
+                            timer = setInterval(() => { <br>
+                                if(maxTime > 0) { <br>
+                                    maxTime--; <br>
+                                    return timeText.innerText = maxTime; <br>
+                                } <br>
+                                alert(`Time off! ${correctWord.toUpperCase()} was the correct word`); <br>
+                                initGame(); <br>
+                            }, 1000); <br>
+                        }
+                    </code>
+                </div>
+                <div class="sortable-item" id="block4">
+                    <code class="code-block">
+                        const initGame = () => { <br>
+                            initTimer(30); <br>
+                            let randomObj = words[Math.floor(Math.random() * words.length)]; <br>
+                            let wordArray = randomObj.word.split(""); <br>
+                            for (let i = wordArray.length - 1; i > 0; i--) { <br>
+                                let j = Math.floor(Math.random() * (i + 1)); <br>
+                                [wordArray[i], wordArray[j]] = [wordArray[j], wordArray[i]]; <br>
+                            } <br>
+                            wordText.innerText = wordArray.join(""); <br>
+                            hintText.innerText = randomObj.hint; <br>
+                            correctWord = randomObj.word.toLowerCase();; <br>
+                            inputField.value = ""; <br>
+                            inputField.setAttribute("maxlength", correctWord.length); <br>
+                        } <br>
+                        initGame();
+                    </code>
+                </div>
+                <div class="sortable-item" id="block5">
+                    <code class="code-block">
+                        const checkWord = () => { <br>
+                            let userWord = inputField.value.toLowerCase(); <br>
+                            if(!userWord) return alert("Por favor digite a palavra para verificar!"); <br>
+                            if(userWord !== correctWord) return alert(`Oops! ${userWord} palavra INCORRETA`); <br>
+                            alert(`Parabéns! ${correctWord.toUpperCase()} palavra CORRETA`); <br>
+                            initGame(); <br>
+                        }
+                    </code>
+                </div>
+                <div class="sortable-item" id="block6">
+                    <code class="code-block">
+                        refreshBtn.addEventListener("click", initGame); <br>
+                        checkBtn.addEventListener("click", checkWord);
+                    </code>
+                </div>
+            </div>
+            <div class="container-button">
+                <button id="checkButton" onclick="checkSolution()" class="veri">Verificar Solução</button>
+                <button onclick="shufflePuzzle()" class="emb">Embaralhar para jogar novamente</button> 
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script src="./assets/js/script_qbrcb.js"></script>
+</body>
+
+</html>
